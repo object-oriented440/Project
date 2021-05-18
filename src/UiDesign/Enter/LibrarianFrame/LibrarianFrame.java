@@ -14,7 +14,8 @@ public class LibrarianFrame extends JFrame implements ActionListener {
     {
         this.setTitle("图书管理员界面");
         panel = new JPanel();
-        myMenu = new MyMenu();
+        //myMenu = new MyMenu();
+        myMenu = new MyMenu(this);
     }
     private void setBounds()
     {
@@ -35,14 +36,14 @@ public class LibrarianFrame extends JFrame implements ActionListener {
     {
 
     }
-    private void transmit()
-    {
-        myMenu.getJFrame(this);
-    }
+//    private void transmit()
+//    {
+//        myMenu.getJFrame(this);
+//    }
     public LibrarianFrame()
     {
         InitVariate();//初始化变量
-        transmit();//传递参数
+        //transmit();//传递参数
         setBounds();//设置JFrame的窗口位置和窗口大小
         creatMenu();//创建JMenu菜单
         creatContentPane();//创建内容窗格

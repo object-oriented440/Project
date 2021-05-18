@@ -26,6 +26,13 @@ public class SetIcons {
         label.setIcon(new ImageIcon(imagePath));
     }
     /***设置JButton的图标***/
+    public void setJButtonIcon(JButton button,String imagePath,int width,int height)
+    {
+        ImageIcon imageIcon;
+        imageIcon = new ImageIcon(imagePath);
+        imageIcon = this.iconSize(imageIcon,width,height);
+        button.setIcon(imageIcon);
+    }
     public void setJButtonIcon(JButton button,String imagePath)
     {
         button.setIcon(new ImageIcon(imagePath));
@@ -36,7 +43,14 @@ public class SetIcons {
         menu.setIcon(new ImageIcon(imagePath));
     }
     /***设置JMenuItem的图标***/
-    public void setJMenuItem(JMenuItem item,String imagePath)
+    public void setJMenuItemIcon(JMenuItem item,String imagePath,int width,int height)
+    {
+        ImageIcon imageIcon;
+        imageIcon = new ImageIcon(imagePath);
+        imageIcon = this.iconSize(imageIcon,width,height);
+        item.setIcon(imageIcon);
+    }
+    public void setJMenuItemIcon(JMenuItem item,String imagePath)
     {
         item.setIcon(new ImageIcon(imagePath));
     }

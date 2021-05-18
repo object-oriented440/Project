@@ -2,6 +2,7 @@ package UiDesign.Enter.LibrarianFrame.Menu;
 
 import UiDesign.AboutUs.AboutUsDialog;
 import UiDesign.CustomComponent.Tools.SetIcons;
+import UiDesign.Enter.Menu.Else;
 
 import javax.naming.InitialContext;
 import javax.swing.*;
@@ -13,14 +14,12 @@ import java.awt.event.ActionListener;
 public class MyMenu extends JMenuBar implements ActionListener {
     private JFrame frame;
     private SetIcons setIcons;
-    public void InitVariate()
+    private Else menuElse;//
+    public void InitVariate(JFrame frame)
     {
-        frame = new JFrame();
+        this.frame = new JFrame();
         setIcons = new SetIcons();
-    }
-    public void getJFrame(JFrame frame)
-    {
-        this.frame = frame;
+        menuElse = new Else(frame);
     }
     public JMenu creatMenu1()
     {
@@ -54,41 +53,27 @@ public class MyMenu extends JMenuBar implements ActionListener {
 
         return menu;
     }
-    public JMenu creatMenuElse()
-    {
-        JMenu menu = new JMenu("其他");
-
-        JMenuItem item;
-
-        item = new JMenuItem("退出");
-        item.addActionListener(this);
-        item.setActionCommand("exit");
-        //设置图标
-
-        menu.add(item);
-
-        menu.addSeparator();
-
-        item = new JMenuItem("关于我们");
-        item.addActionListener(this);
-        item.setActionCommand("AboutUs");
-        menu.add(item);
-
-        return menu;
-    }
     private void AddIntoJMenuBar()
     {
         this.add(creatMenu1());
         this.add(creatMenu2());
-        this.add(creatMenuElse());
+        this.add(menuElse);//
     }
-    public MyMenu()
+//    private void transmit()//不要这样传递参数!!!
+//    {
+//        menuElse.getJFrame(frame);
+//    }
+//    public MyMenu()
+//    {
+//        InitVariate();//初始化变量
+//        //transmit();
+//        //menuElse.getFrame(frame);
+//        AddIntoJMenuBar();
+//    }
+    public MyMenu(JFrame frame)
     {
-        InitVariate();//初始化变量
+        InitVariate(frame);
         AddIntoJMenuBar();
-    }
-    public static void main(String[] args) {
-
     }
 
     @Override
@@ -108,16 +93,6 @@ public class MyMenu extends JMenuBar implements ActionListener {
         if(e.getActionCommand().equals("categoryMaintain"))
         {
 
-        }
-        if(e.getActionCommand().equals("exit"))
-        {
-            frame.dispose();
-        }
-        if(e.getActionCommand().equals("AboutUs"))
-        {
-            System.out.println("just a test");
-            new AboutUsDialog();
-            //System.out.println("just a test");
         }
     }
 

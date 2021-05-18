@@ -37,7 +37,7 @@ public class AboutUsDialog extends JDialog implements ActionListener, MouseListe
     }
     private void setDialog()
     {
-        System.out.println("setDialog()");
+        //System.out.println("setDialog()");
         this.setTitle("关于我们");
         this.setBounds(400,240, 600, 350);
     }
@@ -54,19 +54,21 @@ public class AboutUsDialog extends JDialog implements ActionListener, MouseListe
 
         labelSystem.setText("图书管理系统");
         labelSystem.setFont(new Font("微软雅黑",Font.BOLD,50));
-        //setIcons.setJLabelIcon(labelSystem,"src/Images/书本.png",50,50);
+        setIcons.setJLabelIcon(labelSystem,"src/Images/学习.png",60,60);
 
         labelVersion.setText(stringVersion);
         labelVersion.setFont(new Font("微软雅黑",Font.BOLD,30));
-        //setIcons.setJLabelIcon(labelVersion,"src/Images/星轨.png",40,40);
+        setIcons.setJLabelIcon(labelVersion,"src/Images/版本.png",40,40);
 
         labelLink.setText("<html><u>相关GitHub链接</u></html>");
         labelLink.setForeground(new Color(0, 149, 200));//设置小组件颜色？
         labelLink.setFont(new Font("微软雅黑",Font.BOLD,30));
-        //setIcons.setJLabelIcon(labelLink,"src/Images/搜索.png",30,30);
+        setIcons.setJLabelIcon(labelLink,"src/Images/链接.png",40,40);
+
+        labelLink.addMouseListener(this);//为JLabel注册鼠标事件监听器
 
 
-        closeButton.addActionListener(this);
+        closeButton.addActionListener(this);//为JButton注册事件监听器
         closeButton.setActionCommand("closeButton");
 
 
@@ -132,7 +134,7 @@ public class AboutUsDialog extends JDialog implements ActionListener, MouseListe
         * 通过电脑本地打开默认浏览器然后再打开URI所指向的位置
         * */
         Desktop desktop = Desktop.getDesktop();
-        String str = "";
+        String str = "https://github.com/object-oriented440/Project";
         try {
             desktop.browse(new URI(str));
         } catch (URISyntaxException uriSyntaxException) {
@@ -147,7 +149,8 @@ public class AboutUsDialog extends JDialog implements ActionListener, MouseListe
     * */
     @Override
     public void mousePressed(MouseEvent e) {
-
+        labelLink.setCursor(new Cursor(Cursor.HAND_CURSOR));//???
+        labelLink.setForeground(new Color(0, 0, 0));
     }
 
     @Override

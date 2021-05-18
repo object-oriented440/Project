@@ -8,11 +8,13 @@ import java.awt.event.ActionListener;
 
 public class UserFrame extends JFrame implements ActionListener {
 
+    MyMenu myMenu;
     JPanel panel;
     private void InitVariate()
     {
         this.setTitle("用户界面");
         panel = new JPanel();
+        myMenu = new MyMenu(this);
     }
     private void setBounds()
     {
@@ -25,11 +27,6 @@ public class UserFrame extends JFrame implements ActionListener {
     }
     private void creatMenu()
     {
-        MyMenu myMenu = new MyMenu();
-
-        //menuJMenuBar.setBackground(new Color(240,255,255));
-        //this.add(myJMenu.creatMenu1());//,BorderLayout.NORTH);
-
         this.setJMenuBar(myMenu);//JFrame.setJMenuBar(JMenuBar)
     }
     private void creatContentPane()
@@ -42,15 +39,13 @@ public class UserFrame extends JFrame implements ActionListener {
         setBounds();//设置JFrame的窗口位置和窗口大小
         creatMenu();//创建JMenu菜单
         creatContentPane();//创建内容窗格
-
-        //
         setClosedVisible();
 
     }
     public static void main(String[] args) {
         UserFrame userFrame = new UserFrame();
-        userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        userFrame.setVisible(true);
+//        userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        userFrame.setVisible(true);
     }
 
     @Override

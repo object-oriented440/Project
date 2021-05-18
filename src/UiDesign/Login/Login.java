@@ -21,6 +21,7 @@ public class Login extends JFrame implements ActionListener {
     private JRadioButton rb3;
     private JTextField textAccount;
     private JPasswordField textPassword;
+    private SetIcons setIcons;
 
     Verify verify;//定义用户操作对象
 
@@ -97,12 +98,20 @@ public class Login extends JFrame implements ActionListener {
 //        textAccount = new JTextField(12);
 //        textPassword = new JTextField(12);
 
-        JButton loginButton = new JButton("登录");
+        //JButton loginButton = new JButton("登录");
+        JButton loginButton = new JButton();
+
+        JLabel labelCheck = new JLabel();
+        //setIcons.setJLabelIcon(labelCheck,"src/Images/浏览.png",15,15);
+        setIcons.setJLabelIcon(labelCheck,"src/Images/闭眼睛.png");
+
+
         loginButton.addActionListener(this);//设置事件监听
         loginButton.setActionCommand("login");//设置监听识别命令？
 
 
-        JButton registerButton = new JButton("注册");
+        //JButton registerButton = new JButton("注册");
+        JButton registerButton = new JButton();
         registerButton.addActionListener(this);//设置事件监听
         registerButton.setActionCommand("register");//设置监听识别命令？
 
@@ -112,17 +121,29 @@ public class Login extends JFrame implements ActionListener {
         p1.add(textAccount);
         p2.add(labelPassword);
         p2.add(textPassword);
+
+        //p2.add(labelCheck);
+
         p3.add(loginButton);
         p3.add(registerButton);
 
         //为标签设置图标
-        SetIcons setIcons = new SetIcons();
+
         setIcons.setJLabelIcon(labelSystem,"src/Images/logo.png");
-        setIcons.setJLabelIcon(labelAccount,"src/Images/userName.png");
-        setIcons.setJLabelIcon(labelPassword,"src/Images/password.png");
+
+        //setIcons.setJLabelIcon(labelAccount,"src/Images/userName.png");
+        setIcons.setJLabelIcon(labelAccount,"src/Images/用户名 (2).png");
+        //setIcons.setJLabelIcon(labelAccount,"src/Images/我的2.png",15,15);
+
+        //setIcons.setJLabelIcon(labelPassword,"src/Images/password.png");
+        setIcons.setJLabelIcon(labelPassword,"src/Images/密码 (2).png");
+        //setIcons.setJLabelIcon(labelPassword,"src/Images/密码.png",20,20);
         //为按钮设置图标
-        setIcons.setJButtonIcon(loginButton,"src/Images/login.png");
-        setIcons.setJButtonIcon(registerButton,"src/Images/reset.png");
+        //setIcons.setJButtonIcon(loginButton,"src/Images/login.png");
+        setIcons.setJButtonIcon(loginButton,"src/Images/登录.png");
+        //setIcons.setJButtonIcon(loginButton,"src/Images/login.png",15,15);
+        setIcons.setJButtonIcon(registerButton,"src/Images/注册 (2).png");
+        //setIcons.setJButtonIcon(registerButton,"src/Images/注册.png",16,16);
 
 //        p.add(p1);
 //        p.add(p2);
@@ -164,6 +185,7 @@ public class Login extends JFrame implements ActionListener {
         rb3 = new JRadioButton("系统管理员登录");
         textAccount = new JTextField(12);
         textPassword = new JPasswordField(12);
+        setIcons = new SetIcons();
 
         textAccount.setText("张三");
         textPassword.setText("123456");
@@ -172,6 +194,10 @@ public class Login extends JFrame implements ActionListener {
     {
         //frame.setBackground(new Color(255 ,255 ,240));
         frame.setBounds(300,200,600,400);
+    }
+    void replaceLogo()
+    {
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/图书馆3.png"));
     }
     void setClosedVisible()
     {
@@ -182,6 +208,7 @@ public class Login extends JFrame implements ActionListener {
     {
         InitVariate();//初始化变量
         setFrame();
+        replaceLogo();
         LoginChoose(frame);//登录账户选择（三选一）
         LoginAccount(frame,panel);//选择登录账户后的界面
 

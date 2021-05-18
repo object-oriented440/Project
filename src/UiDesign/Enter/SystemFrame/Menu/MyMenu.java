@@ -1,10 +1,24 @@
 package UiDesign.Enter.SystemFrame.Menu;
 
+import UiDesign.AboutUs.AboutUsDialog;
+import UiDesign.CustomComponent.Tools.SetIcons;
+import UiDesign.Enter.Menu.Else;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MyMenu extends JMenuBar implements ActionListener {
+    private JFrame frame;
+    private SetIcons setIcons;
+    private Else menuElse;//
+    public void InitVariate(JFrame frame)
+    {
+        this.frame = new JFrame();
+
+        setIcons = new SetIcons();
+        menuElse = new Else(frame);
+    }
     public JMenu creatMenu1()
     {
         JMenu menu = new JMenu("管理");
@@ -20,37 +34,20 @@ public class MyMenu extends JMenuBar implements ActionListener {
         menu.add(item);
         return menu;
     }
-    public JMenu creatMenuElse()
-    {
-        JMenu menu = new JMenu("其他");
 
-        JMenuItem item;
-
-        item = new JMenuItem("退出");
-        item.addActionListener(this);
-        item.setActionCommand("exit");
-        menu.add(item);
-
-        menu.addSeparator();
-
-        item = new JMenuItem("关于我们");
-        item.addActionListener(this);
-        item.setActionCommand("AboutUs");
-        menu.add(item);
-
-        return menu;
-    }
     private void AddIntoJMenuBar()
     {
         this.add(creatMenu1());
-        this.add(creatMenuElse());
+        this.add(menuElse);
     }
     public MyMenu()
     {
-        AddIntoJMenuBar();
-    }
-    public static void main(String[] args) {
 
+    }
+    public MyMenu(JFrame frame)
+    {
+        InitVariate(frame);
+        AddIntoJMenuBar();
     }
 
     @Override
@@ -63,13 +60,13 @@ public class MyMenu extends JMenuBar implements ActionListener {
         {
 
         }
-        if(e.getActionCommand().equals("exit"))
-        {
-
-        }
-        if(e.getActionCommand().equals("AboutUs"))
-        {
-
-        }
+//        if(e.getActionCommand().equals("exit"))
+//        {
+//            frame.dispose();
+//        }
+//        if(e.getActionCommand().equals("AboutUs"))
+//        {
+//            new AboutUsDialog();
+//        }
     }
 }
