@@ -12,7 +12,7 @@ import UiDesign.Enter.SystemFrame.SystemFrame;
 import UiDesign.Enter.UserFrame.UserFrame;
 import UiDesign.Manager.VerifyAccount.*;
 
-public class Login extends JFrame implements ActionListener {
+public class LoginFrame extends JFrame implements ActionListener {
     private JFrame frame;
     private JPanel panel;//
     private JPanel panelChoose;
@@ -22,13 +22,17 @@ public class Login extends JFrame implements ActionListener {
     private JTextField textAccount;
     private JPasswordField textPassword;
     private SetIcons setIcons;
+    private UserFrame userFrame;
+    private LibrarianFrame librarianFrame;
+    private SystemFrame systemFrame;
 
     Verify verify;//定义用户操作对象
 
-    public JFrame getFrame()
+    public void setVariate_frame(JFrame jf)
     {
-        return frame;
+        this.frame = jf;
     }
+
     void LoginChoose(JFrame frame)
     {
         panelChoose= new JPanel();
@@ -194,6 +198,7 @@ public class Login extends JFrame implements ActionListener {
     {
         //frame.setBackground(new Color(255 ,255 ,240));
         frame.setBounds(300,200,600,400);
+        replaceLogo();
     }
     void replaceLogo()
     {
@@ -204,19 +209,20 @@ public class Login extends JFrame implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-    public Login()
+    private void setContentPane()
+    {
+        LoginChoose(frame);//登录账户选择（三选一）
+        LoginAccount(frame,panel);//选择登录账户后的界面
+    }
+    public LoginFrame()
     {
         InitVariate();//初始化变量
         setFrame();
-        replaceLogo();
-        LoginChoose(frame);//登录账户选择（三选一）
-        LoginAccount(frame,panel);//选择登录账户后的界面
-
-
+        setContentPane();
         setClosedVisible();
     }
     public static void main(String[] args) {
-        Login login = new Login();
+        LoginFrame loginFrame = new LoginFrame();
 //        login.getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        login.getFrame().setVisible(true);
     }
@@ -236,18 +242,26 @@ public class Login extends JFrame implements ActionListener {
 
                 frame.dispose();//关闭当前窗口
                 //frame.setVisible(false);//关闭当前窗口
+
                 //new UserFrame();//打开相应界面
                 if(rb1.isSelected())//如果rb1
                 {
-                    new UserFrame();
+                    //new UserFrame();
+                    userFrame = new UserFrame();
+                    //userFrame.setVariate_previousFrame(this);
                 }
                 if(rb2.isSelected())//如果rb2
                 {
-                    new LibrarianFrame();
+                    librarianFrame = new LibrarianFrame(frame);
+                    //librarianFrame.setVariate_previousFrame(this);
+                    librarianFrame.Execute();
+                    librarianFrame.setClosedVisible();//可关和可视
                 }
                 if(rb3.isSelected())//如果rb3
                 {
-                    new SystemFrame();
+                    //new SystemFrame();
+                    systemFrame = new SystemFrame();
+                    //systemFrame.setVariate_previousFrame(this);
                 }
             }
 //            User user = verify.getUserByAccount(account);//查询

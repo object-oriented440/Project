@@ -24,11 +24,13 @@ public class MyMenu extends JMenuBar implements ActionListener {
         JMenu menu = new JMenu("管理");
         JMenuItem item;
         item = new JMenuItem("用户管理");
+        setIcons.setJMenuItemIcon(item,"src/Images/用户管理3.png",16,16);
         item.addActionListener(this);
         item.setActionCommand("UserManager");
         menu.add(item);
         menu.addSeparator();
         item = new JMenuItem("图书管理员管理");
+        setIcons.setJMenuItemIcon(item,"src/Images/管理.png",16,16);
         item.addActionListener(this);
         item.setActionCommand("LibrarianManager");
         menu.add(item);

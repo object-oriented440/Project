@@ -43,6 +43,8 @@ public class AboutUsDialog extends JDialog implements ActionListener, MouseListe
     }
     private void creatContentPane()
     {
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/about.png"));
+
         //System.out.println("creatContentPane()");
         JPanel p1 = new JPanel();
         JPanel p2 = new JPanel();//

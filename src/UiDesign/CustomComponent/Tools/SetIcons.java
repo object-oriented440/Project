@@ -23,7 +23,9 @@ public class SetIcons {
     }
     public void setJLabelIcon(JLabel label,String imagePath)
     {
-        label.setIcon(new ImageIcon(imagePath));
+        ImageIcon imageIcon;
+        imageIcon = new ImageIcon(imagePath);
+        label.setIcon(imageIcon);
     }
     /***设置JButton的图标***/
     public void setJButtonIcon(JButton button,String imagePath,int width,int height)

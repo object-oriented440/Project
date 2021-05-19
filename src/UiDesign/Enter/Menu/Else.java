@@ -2,6 +2,7 @@ package UiDesign.Enter.Menu;
 
 import UiDesign.AboutUs.AboutUsDialog;
 import UiDesign.CustomComponent.Tools.SetIcons;
+import UiDesign.Login.LoginFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,20 +14,27 @@ import java.awt.event.ActionListener;
 public class Else extends JMenu implements ActionListener {
     //private JMenu menu;
     private SetIcons setIcons;
-    private JFrame frame;//???
+    private JFrame currentFrame;
+    private JFrame previousFrame;
+//    public void setVariate_previousFrame(JFrame jf)
+//    {
+//        this.previousFrame = jf;
+//    }
+//    public void transmit(JFrame previousFrame)
+//    {
+//        this.previousFrame = previousFrame;
+//    }
     //test
 //    public void getJFrame(JFrame frame)
 //    {
 //        this.frame = frame;
 //    }
-    private void setJFrame(JFrame frame)
-    {
-        this.frame = frame;
-    }
+//    //private void setJFrame(JFrame frame)
+//    {
+//        this.frame = frame;
+//    }
     private void InitVariate()
     {
-        frame = new JFrame();
-        //menu = new JMenu();
         setIcons = new SetIcons();
     }
     private void setElse()
@@ -35,6 +43,15 @@ public class Else extends JMenu implements ActionListener {
         this.setText("其他");
 
         JMenuItem item;
+
+        item = new JMenuItem("返回");
+        item.addActionListener(this);
+        item.setActionCommand("return");
+        setIcons.setJMenuItemIcon(item,"src/Images/返回1.png",16,16);
+
+        this.add(item);
+
+        this.addSeparator();
 
         item = new JMenuItem("退出");
         item.addActionListener(this);
@@ -58,24 +75,47 @@ public class Else extends JMenu implements ActionListener {
         //menu.add(item);
         this.add(item);
     }
-    public Else()
-    {
-        InitVariate();
-        setElse();
-    }
     public Else(JFrame frame)
     {
+        this.currentFrame = frame;
         InitVariate();
-        setJFrame(frame);
         setElse();
     }
+    public Else(JFrame currentFrame,JFrame previousFrame)
+    {
+        this.currentFrame = currentFrame;
+        this.previousFrame = previousFrame;
+        InitVariate();
+        setElse();
+    }
+//    public Else(JFrame frame,JFrame previousFrame)
+//    {
+//        InitVariate();
+//        setJFrame(frame);
+//        this.previousFrame = previousFrame;
+//        setElse();
+//    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("return"))
+        {
+            //currentFrame.dispose();
+            currentFrame.setVisible(false);
+
+            //new LoginFrame();//是否正确？
+
+//            previousFrame.setTitle("这怎么就是新JFrame了？！");
+//            previousFrame.setSize(300,200);
+            previousFrame.setVisible(true);
+            //点击返回返回上一个界面
+
+        }
         if(e.getActionCommand().equals("exit"))
         {
             //System.out.println("test:exit?");
-            frame.dispose();
+            //currentFrame.dispose();
+            currentFrame.setVisible(false);
             //frame.setVisible(true);
         }
         if(e.getActionCommand().equals("AboutUs"))

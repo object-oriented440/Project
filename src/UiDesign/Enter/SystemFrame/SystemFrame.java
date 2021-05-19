@@ -1,8 +1,10 @@
 package UiDesign.Enter.SystemFrame;
 
+import UiDesign.CustomComponent.ThreeFramePane.ContentPane;
 import UiDesign.Enter.SystemFrame.Menu.MyMenu;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,6 +21,11 @@ public class SystemFrame extends JFrame implements ActionListener {
     {
         this.setBounds(300,200,600,400);
     }
+    private void setFrame()
+    {
+        setBounds();
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/系统管理员1.png"));
+    }
     private void setClosedVisible()
     {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,13 +37,17 @@ public class SystemFrame extends JFrame implements ActionListener {
     }
     private void creatContentPane()
     {
-
+        ContentPane contentPane = new ContentPane("src/Images/系统管理xxx.png");
+        //ContentPane contentPane = new ContentPane();
+        panel.add(contentPane);
+        //panel.add(new ContentPane());
+        this.add(panel);
     }
     public SystemFrame()
     {
         InitVariate();//初始化变量
-
-        setBounds();//设置JFrame的窗口位置和窗口大小
+        //setBounds();//设置JFrame的窗口位置和窗口大小
+        setFrame();
         creatMenu();//创建JMenu菜单
         creatContentPane();//创建内容窗格
 
