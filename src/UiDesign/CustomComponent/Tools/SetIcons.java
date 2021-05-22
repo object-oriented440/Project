@@ -13,6 +13,17 @@ public class SetIcons {
         imageIcon.setImage(img);//ImageIcon.setImage(Image)
         return imageIcon;
     }
+    /*简单的，类似按比例缩小图片*/
+    public void setJLabelImageScale(JLabel label,String imagePath,int width)//只传入width
+    {
+        ImageIcon imageIcon = new ImageIcon(imagePath);
+        int w = imageIcon.getIconWidth();
+        int h = imageIcon.getIconHeight();
+        int height = width*h/w;
+
+        imageIcon = this.iconSize(imageIcon,width,height);
+        label.setIcon(imageIcon);
+    }
     /***设置JLabel的图标***/
     public void setJLabelIcon(JLabel label,String imagePath,int width,int height)
     {

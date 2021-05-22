@@ -247,8 +247,10 @@ public class LoginFrame extends JFrame implements ActionListener {
                 if(rb1.isSelected())//如果rb1
                 {
                     //new UserFrame();
-                    userFrame = new UserFrame();
+                    userFrame = new UserFrame(frame);
                     //userFrame.setVariate_previousFrame(this);
+                    userFrame.Execute();
+                    userFrame.setClosedVisible();
                 }
                 if(rb2.isSelected())//如果rb2
                 {
@@ -260,8 +262,10 @@ public class LoginFrame extends JFrame implements ActionListener {
                 if(rb3.isSelected())//如果rb3
                 {
                     //new SystemFrame();
-                    systemFrame = new SystemFrame();
+                    systemFrame = new SystemFrame(frame);
                     //systemFrame.setVariate_previousFrame(this);
+                    systemFrame.Execute();
+                    systemFrame.setClosedVisible();
                 }
             }
 //            User user = verify.getUserByAccount(account);//查询

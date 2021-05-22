@@ -9,28 +9,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MyMenu extends JMenuBar implements ActionListener {
-    private JFrame frame;
+    private JFrame currentFrame;
+    private JFrame previousFrame;
     private SetIcons setIcons;
-    private Else menuElse;//
-    public void InitVariate(JFrame frame)
+    //private Else menuElse;//
+    public void InitVariate()
     {
-        this.frame = new JFrame();
+        //this.frame = new JFrame();
 
         setIcons = new SetIcons();
-        menuElse = new Else(frame);
+        //menuElse = new Else(frame);
     }
     public JMenu creatMenu1()
     {
         JMenu menu = new JMenu("管理");
         JMenuItem item;
         item = new JMenuItem("用户管理");
-        setIcons.setJMenuItemIcon(item,"src/Images/用户管理3.png",16,16);
+        setIcons.setJMenuItemIcon(item,"src/Images/我的2.png",16,16);
         item.addActionListener(this);
         item.setActionCommand("UserManager");
         menu.add(item);
         menu.addSeparator();
         item = new JMenuItem("图书管理员管理");
-        setIcons.setJMenuItemIcon(item,"src/Images/管理.png",16,16);
+        setIcons.setJMenuItemIcon(item,"src/Images/维护2.png",16,16);
         item.addActionListener(this);
         item.setActionCommand("LibrarianManager");
         menu.add(item);
@@ -40,15 +41,19 @@ public class MyMenu extends JMenuBar implements ActionListener {
     private void AddIntoJMenuBar()
     {
         this.add(creatMenu1());
+
+        Else menuElse = new Else(currentFrame,previousFrame);
         this.add(menuElse);
     }
     public MyMenu()
     {
 
     }
-    public MyMenu(JFrame frame)
+    public MyMenu(JFrame currentFrame,JFrame previousFrame)
     {
-        InitVariate(frame);
+        this.currentFrame = currentFrame;
+        this.previousFrame = previousFrame;
+        InitVariate();
         AddIntoJMenuBar();
     }
 

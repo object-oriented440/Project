@@ -10,14 +10,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MyMenu extends JMenuBar implements ActionListener {
-    private JFrame frame;
+    private JFrame currentFrame;
+    private JFrame previousFrame;
     private SetIcons setIcons;
-    private Else menuElse;//
-    public void InitVariate(JFrame frame)
+    //private Else menuElse;//
+    public void InitVariate()
     {
-        this.frame = new JFrame();
         setIcons = new SetIcons();
-        menuElse = new Else(frame);
+        //menuElse = new Else(frame);
     }
     public JMenu creatMenu1()
     {
@@ -45,17 +45,26 @@ public class MyMenu extends JMenuBar implements ActionListener {
     private void AddIntoJMenuBar()
     {
         this.add(creatMenu1());
+
+        Else menuElse = new Else(currentFrame,previousFrame);
         this.add(menuElse);
     }
     public MyMenu()
     {
 
     }
-    public MyMenu(JFrame frame)
+    public MyMenu(JFrame currentFrame,JFrame previousFrame)
     {
-        InitVariate(frame);
+        this.currentFrame = currentFrame;
+        this.previousFrame = previousFrame;
+        InitVariate();
         AddIntoJMenuBar();
     }
+//    public MyMenu(JFrame frame)
+//    {
+//        InitVariate(frame);
+//        AddIntoJMenuBar();
+//    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("borrow"))

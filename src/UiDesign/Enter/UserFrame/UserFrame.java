@@ -10,13 +10,14 @@ import java.awt.event.ActionListener;
 
 public class UserFrame extends JFrame implements ActionListener {
 
-    MyMenu myMenu;
-    JPanel panel;
+    private JFrame previousFrame;
+    private MyMenu myMenu;
+    private JPanel panel;
     private void InitVariate()
     {
         this.setTitle("用户界面");
         panel = new JPanel();
-        myMenu = new MyMenu(this);
+        myMenu = new MyMenu(this,previousFrame);
     }
     private void setBounds()
     {
@@ -27,7 +28,7 @@ public class UserFrame extends JFrame implements ActionListener {
         setBounds();
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/用户.png"));
     }
-    private void setClosedVisible()
+    public void setClosedVisible()
     {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
@@ -43,18 +44,30 @@ public class UserFrame extends JFrame implements ActionListener {
         //panel.add(new ContentPane());
         this.add(panel);
     }
-    public UserFrame()
+    public void Execute()
     {
-        InitVariate();//初始化变量
         //setBounds();//设置JFrame的窗口位置和窗口大小
         setFrame();
         creatMenu();//创建JMenu菜单
         creatContentPane();//创建内容窗格
-        setClosedVisible();
-
     }
+    public UserFrame(JFrame currentFrame)
+    {
+        this.previousFrame = currentFrame;
+        InitVariate();//初始化变量
+    }
+//    public UserFrame()
+//    {
+//        InitVariate();//初始化变量
+//        //setBounds();//设置JFrame的窗口位置和窗口大小
+//        setFrame();
+//        creatMenu();//创建JMenu菜单
+//        creatContentPane();//创建内容窗格
+//        setClosedVisible();
+//
+//    }
     public static void main(String[] args) {
-        UserFrame userFrame = new UserFrame();
+        //UserFrame userFrame = new UserFrame();
 //        userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        userFrame.setVisible(true);
     }

@@ -9,13 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SystemFrame extends JFrame implements ActionListener {
+    private JFrame previousFrame;
     private MyMenu myMenu;
     private JPanel panel;
     private void InitVariate()
     {
         this.setTitle("系统管理员界面");
         panel = new JPanel();
-        myMenu = new MyMenu(this);
+        myMenu = new MyMenu(this,previousFrame);
     }
     private void setBounds()
     {
@@ -26,7 +27,7 @@ public class SystemFrame extends JFrame implements ActionListener {
         setBounds();
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/系统管理员1.png"));
     }
-    private void setClosedVisible()
+    public void setClosedVisible()
     {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
@@ -43,19 +44,20 @@ public class SystemFrame extends JFrame implements ActionListener {
         //panel.add(new ContentPane());
         this.add(panel);
     }
-    public SystemFrame()
+    public void Execute()
     {
-        InitVariate();//初始化变量
         //setBounds();//设置JFrame的窗口位置和窗口大小
         setFrame();
         creatMenu();//创建JMenu菜单
         creatContentPane();//创建内容窗格
-
-        setClosedVisible();
-
+    }
+    public SystemFrame(JFrame currentFrame)
+    {
+        this.previousFrame = currentFrame;
+        InitVariate();//初始化变量
     }
     public static void main(String[] args) {
-        SystemFrame systemFrame = new SystemFrame();
+        //SystemFrame systemFrame = new SystemFrame();
 //        systemFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        systemFrame.setVisible(true);
     }
