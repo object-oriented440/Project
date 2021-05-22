@@ -7,8 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
-public class BookAddPane extends JPanel implements ActionListener {
+public class BookAddPane extends JPanel implements ActionListener, FocusListener {
 
     private Box HBox;
     private Box leftVBox;
@@ -35,6 +37,8 @@ public class BookAddPane extends JPanel implements ActionListener {
 
     private JLabel labelBookCategory;
     private JComboBox comboBoxBookCategory;
+
+    private String stringDefault;
 
 
     private void InitVariate()
@@ -64,15 +68,19 @@ public class BookAddPane extends JPanel implements ActionListener {
         Dimension dimension = new Dimension(50, 10);
 
         fieldBookName = new JTextField(10);
+        fieldBookName.setText("平凡的世界");
         //fieldBookName.setPreferredSize(dimension);
 
         fieldBookAuthor = new JTextField(10);
+        fieldBookAuthor.setText("路瑶");
         //fieldBookAuthor.setPreferredSize(dimension);
 
         fieldBookPress = new JTextField(10);
+        fieldBookPress.setText("北京十月文艺出版社");
         //fieldBookPress.setPreferredSize(dimension);
 
         fieldBookCallNumber = new JTextField(10);
+        fieldBookCallNumber.setText("PFDSJ");
         //fieldBookCallNumber.setPreferredSize(dimension);
 
 
@@ -81,7 +89,14 @@ public class BookAddPane extends JPanel implements ActionListener {
 
         //areaBookIntroduce.setSelectedTextColor(Color.red);//设置文本颜色
         //areaBookIntroduce.setForeground(Color.red);
+
+        stringDefault = "请输入书籍的主要内容";
+        areaBookIntroduce.setForeground(new Color(211, 211, 211));
         areaBookIntroduce.setFont(new Font("微软雅黑",Font.BOLD,16));
+        areaBookIntroduce.setText(stringDefault);
+
+        areaBookIntroduce.addFocusListener(this);
+
 
         areaBookIntroduce.setLineWrap(true);//激活自动换行功能  ！！！有这个功能
         areaBookIntroduce.setWrapStyleWord(true);//激活断行不断字功能
@@ -96,7 +111,13 @@ public class BookAddPane extends JPanel implements ActionListener {
 
         labelBookCategory = new JLabel("图书类别：");
         comboBoxBookCategory = new JComboBox();
-        //comboBoxBookCategory.add
+
+        comboBoxBookCategory.addItem("--请选择--");
+        comboBoxBookCategory.addItem("玄幻类");
+        comboBoxBookCategory.addItem("文学类");
+
+        comboBoxBookCategory.setSelectedIndex(2);
+
 
     }
     private void setPane()
@@ -141,9 +162,12 @@ public class BookAddPane extends JPanel implements ActionListener {
         hBoxTemp6.add(Box.createHorizontalStrut(width));
         hBoxTemp6.add(buttonReset);
 
-        //hBoxTemp7
+        hBoxTemp7.add(labelBookCategory);
+        hBoxTemp7.add(Box.createHorizontalStrut(width));
+        hBoxTemp7.add(comboBoxBookCategory);
 
         height = 20;
+
         rightVBox.add(hBoxTemp1);
         rightVBox.add(Box.createVerticalStrut(height));
 
@@ -156,14 +180,15 @@ public class BookAddPane extends JPanel implements ActionListener {
         rightVBox.add(hBoxTemp4);
         rightVBox.add(Box.createVerticalStrut(height));
 
-        rightVBox.add(hBoxTemp5);
+        rightVBox.add(hBoxTemp7);
         rightVBox.add(Box.createVerticalStrut(height));
 
-        rightVBox.add(hBoxTemp7);
+        rightVBox.add(hBoxTemp5);
         rightVBox.add(Box.createVerticalStrut(height));
 
         rightVBox.add(hBoxTemp6);
         rightVBox.add(Box.createVerticalStrut(height));
+
 
         //for HBox
         width = 60;
@@ -189,6 +214,33 @@ public class BookAddPane extends JPanel implements ActionListener {
         {
 
         }
+    }
+
+
+    /**
+     * 组件获得焦点时
+     * */
+    @Override
+    public void focusGained(FocusEvent e) {
+        JTextArea area = (JTextArea) e.getSource();
+        if(area.getText().equals(stringDefault))
+        {
+            areaBookIntroduce.setForeground(Color.black);
+            areaBookIntroduce.setFont(new Font("微软雅黑",Font.BOLD,16));
+            areaBookIntroduce.setText("");
+        }
+
+
+    }
+
+    /**
+     * 组件失去焦点时
+     * */
+    @Override
+    public void focusLost(FocusEvent e) {
+//        areaBookIntroduce.setForeground(new Color(211, 211, 211));
+//        areaBookIntroduce.setFont(new Font("微软雅黑",Font.BOLD,16));
+//        areaBookIntroduce.setText("请输入书籍的主要内容");
     }
 
 //    public static void main(String[] args) {

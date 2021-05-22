@@ -110,12 +110,14 @@ public class BookAdd extends JFrame implements ActionListener, MouseListener {
     }
     private void setBounds()
     {
-        this.setBounds(300,150,700,600);
+        this.setBounds(300,150,710,570);
     }
     private void setFrame()
     {
         this.setTitle("图书添加功能");
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/图书地址添加.png"));
+        //this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/图书地址添加.png"));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/图书管理2.png"));
+
         setBounds();
     }
     public void setMenu()
@@ -135,128 +137,6 @@ public class BookAdd extends JFrame implements ActionListener, MouseListener {
         panel.add(bookAddPane);
         this.add(panel);
     }
-//    private void setContentPane()
-//    {
-//
-//        JPanel pane1 = new JPanel();
-//        JPanel pane2 = new JPanel();
-//
-//        //for pane1
-//        JPanel pane1_p1 = new JPanel();
-//        JPanel pane1_p2 = new JPanel();
-//
-//        //for labelSelect
-//        //labelSelect.addMouseListener(this);
-//
-//        //pane1_p1.add(labelSelect);
-//        pane1_p1.add(fileSelector);
-//        //pane1_p2.add(buttonSelect);
-//
-//        //pane1.setLayout(new GridLayout(2,1));
-//        pane1.add(pane1_p1);
-//        //pane1.add(pane1_p2);
-//
-//
-//
-//        //for pane2
-//        JPanel p1,p2,p3,p4,p5,p6,p7;
-//        p1 = new JPanel();
-//        p2 = new JPanel();
-//        p3 = new JPanel();
-//        p4 = new JPanel();
-//        p5 = new JPanel();
-//        p6 = new JPanel();
-//        p7 = new JPanel();
-//
-//        JPanel p1Left,p2Left,p3Left,p4Left,p5Left,p6Left,p7Left;
-//        JPanel p1Right,p2Right,p3Right,p4Right,p5Right,p6Right,p7Right;
-//
-//        p1Left = new JPanel();
-//        p2Left = new JPanel();
-//        p3Left = new JPanel();
-//        p4Left = new JPanel();
-//        p5Left = new JPanel();
-//        p6Left = new JPanel();
-//        p7Left = new JPanel();
-//
-//        p1Right = new JPanel();
-//        p2Right = new JPanel();
-//        p3Right = new JPanel();
-//        p4Right = new JPanel();
-//        p5Right = new JPanel();
-//        p6Right = new JPanel();
-//        p7Right = new JPanel();
-//
-//
-//        p1Left.add(labelName);
-//        p1Right.add(fieldBookName);
-//        //p1.add(JPanel.creat);
-//        p2Left.add(labelAuthor);
-//        p2Right.add(fieldBookAuthor);
-//
-//        p3Left.add(labelPress);
-//        p3Right.add(fieldPress);
-//
-////        /**/
-////        p3.add(labelSex);
-////        //p3.add(group);//不需要
-////        p3.add(rb1);
-////        p3.add(rb2);
-////        /**/
-////
-////        /**/
-////        p4.add(labelPrice);
-////        p4.add(fieldBookPrice);
-////        /**/
-////
-////        /**/
-////        p5.add(labelCategory);
-////        p5.add(comboBookCategory);
-////        p6.add(labelDescription);
-////        //p6.add(areaBookDescription);
-////        /**/
-//
-//        p7Left.add(buttonAdd);
-//        p7Right.add(buttonReset);
-//
-////        p1.setLayout(new BorderLayout());//暂时
-////        p2.setLayout(new BorderLayout());
-////        p3.setLayout(new BorderLayout());
-////        p7.setLayout(new BorderLayout());
-//
-//
-//        p1.add(p1Left,BorderLayout.WEST);
-//        p1.add(p1Right,BorderLayout.CENTER);
-//
-//        p2.add(p2Left,BorderLayout.WEST);
-//        p2.add(p2Right,BorderLayout.CENTER);
-//
-//        p3.add(p3Left,BorderLayout.WEST);
-//        p3.add(p3Right,BorderLayout.CENTER);
-//
-//        p7.add(p7Left,BorderLayout.WEST);
-//        p7.add(p7Right,BorderLayout.CENTER);
-//
-//
-//
-//        pane2.setLayout(new GridLayout(4,1));
-//
-//        pane2.add(p1);
-//        pane2.add(p2);
-//        pane2.add(p3);
-//        //pane2.add(p4);
-//        //pane2.add(p5);
-//        //pane2.add(p6);
-//        pane2.add(p7);
-//
-//        panel.setLayout(new BorderLayout());
-//        panel.add(pane1,BorderLayout.WEST);
-//        panel.add(pane2,BorderLayout.CENTER);
-//
-//        this.add(panel);
-//
-//
-//    }
     public void setClosedVisible()
     {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -291,10 +171,12 @@ public class BookAdd extends JFrame implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("add"))
         {
+            //添加按钮
 
         }
         if(e.getActionCommand().equals("reset"))
         {
+            //重置按钮
 
         }
     }

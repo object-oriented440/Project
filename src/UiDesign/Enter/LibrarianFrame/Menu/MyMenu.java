@@ -1,17 +1,14 @@
 package UiDesign.Enter.LibrarianFrame.Menu;
 
-import UiDesign.AboutUs.AboutUsDialog;
 import UiDesign.CustomComponent.Tools.SetIcons;
-import UiDesign.Enter.LibrarianFrame.LibrarianFrame;
 import UiDesign.Enter.Manager.Book.BookAdd;
+import UiDesign.Enter.Manager.Book.BookCategoryAdd;
+import UiDesign.Enter.Manager.Book.BookInformationModify;
 import UiDesign.Enter.Menu.Else;
 
-import javax.naming.InitialContext;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.print.Book;
 
 /*依附于JMenuBar的JMenu*/
 public class MyMenu extends JMenuBar implements ActionListener {
@@ -79,10 +76,10 @@ public class MyMenu extends JMenuBar implements ActionListener {
         item.setActionCommand("bookAdd");
         menu.add(item);
         menu.addSeparator();
-        item = new JMenuItem("图书维护");
+        item = new JMenuItem("图书信息修改");
         setIcons.setJMenuItemIcon(item,"src/Images/维护2.png",16,16);
         item.addActionListener(this);
-        item.setActionCommand("bookMaintain");
+        item.setActionCommand("bookInformationModify");
         menu.add(item);
 
         return menu;
@@ -178,22 +175,30 @@ public class MyMenu extends JMenuBar implements ActionListener {
             bookAdd.setClosedVisible();
 
         }
-        if(e.getActionCommand().equals("bookMaintain"))
+        if(e.getActionCommand().equals("bookInformationModify"))
         {
             //currentFrame.dispose();
             currentFrame.setVisible(false);
+            BookInformationModify bookInformationModify = new BookInformationModify(currentFrame,previousFrame);
+            bookInformationModify.Execute();
+            bookInformationModify.setClosedVisible();
 
         }
         if(e.getActionCommand().equals("categoryAdd"))
         {
             //currentFrame.dispose();
-            currentFrame.setVisible(false);
+            //currentFrame.setVisible(false);
+            //JOptionPane.showMessageDialog(null, "暂无相关内容，敬请期待...", "信息", JOptionPane.INFORMATION_MESSAGE);
 
+            BookCategoryAdd bookCategoryAdd = new BookCategoryAdd(currentFrame,previousFrame);
+            bookCategoryAdd.Execute();
+            bookCategoryAdd.setClosedVisible();
         }
         if(e.getActionCommand().equals("categoryMaintain"))
         {
             //currentFrame.dispose();
-            currentFrame.setVisible(false);
+            //currentFrame.setVisible(false);
+            JOptionPane.showMessageDialog(null, "暂无相关内容，敬请期待...", "信息", JOptionPane.INFORMATION_MESSAGE);
 
         }
     }
