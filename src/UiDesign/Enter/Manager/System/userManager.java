@@ -1,6 +1,5 @@
-package UiDesign.Enter.Manager.User;
+package UiDesign.Enter.Manager.System;
 
-import UiDesign.AboutUs.AboutUsDialog;
 import UiDesign.CustomComponent.Tools.SetIcons;
 import UiDesign.Enter.Menu.Else;
 
@@ -11,14 +10,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-public class ReturnBook extends JFrame implements ActionListener, FocusListener {
+public class userManager extends JFrame implements ActionListener, FocusListener {
 
     private JFrame previousFrame;
     private SetIcons setIcons;
-
-    private JLabel labelName;//书名
-    private JLabel labelCallNumber;//索书号
-    private JLabel labelPress;//出版社
 
     private void initVariate()
     {
@@ -26,7 +21,7 @@ public class ReturnBook extends JFrame implements ActionListener, FocusListener 
     }
     private void setFrame()
     {
-        this.setTitle("还书界面");
+        this.setTitle("");
         this.setBounds(300,200,600,400);
         Image image = Toolkit.getDefaultToolkit().getImage("src/Images/.png");
         this.setIconImage(image);
@@ -53,20 +48,20 @@ public class ReturnBook extends JFrame implements ActionListener, FocusListener 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
-    public ReturnBook(JFrame currentFrame,JFrame previousFrame)
+    public userManager(JFrame currentFrame,JFrame previousFrame)
     {
         this.previousFrame = currentFrame;
         initVariate();
     }
-    public ReturnBook()
+    public userManager()
     {
         initVariate();
     }
 
     public static void main(String[] args) {
-        ReturnBook returnBook = new ReturnBook();
-        returnBook.Execute();
-        returnBook.setClosedVisible();
+        userManager userManager = new userManager();
+        userManager.Execute();
+        userManager.setClosedVisible();
     }
 
     @Override

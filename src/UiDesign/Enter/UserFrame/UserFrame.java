@@ -39,7 +39,7 @@ public class UserFrame extends JFrame implements ActionListener {
     }
     private void creatContentPane()
     {
-        ContentPane contentPane = new ContentPane("src/Images/用户登录3.png");
+        ContentPane contentPane = new ContentPane("src/Images/用户登录4.png");
         panel.add(contentPane);
         //panel.add(new ContentPane());
         this.add(panel);

@@ -10,6 +10,7 @@ import UiDesign.CustomComponent.Tools.SetIcons;
 import UiDesign.Enter.LibrarianFrame.LibrarianFrame;
 import UiDesign.Enter.SystemFrame.SystemFrame;
 import UiDesign.Enter.UserFrame.UserFrame;
+import UiDesign.Login.APJPanel.APJPanel;
 import UiDesign.Manager.VerifyAccount.*;
 
 public class LoginFrame extends JFrame implements ActionListener {
@@ -26,7 +27,7 @@ public class LoginFrame extends JFrame implements ActionListener {
     private LibrarianFrame librarianFrame;
     private SystemFrame systemFrame;
 
-    Verify verify;//定义用户操作对象
+    //Verify verify;//定义用户操作对象
 
     public void setVariate_frame(JFrame jf)
     {
@@ -63,7 +64,7 @@ public class LoginFrame extends JFrame implements ActionListener {
         panelChoose.add(rb2);
         panelChoose.add(rb3);
 
-        rb2.setSelected(true);
+        rb1.setSelected(true);
 
         ButtonGroup group = new ButtonGroup();
         group.add(rb1);
@@ -71,6 +72,80 @@ public class LoginFrame extends JFrame implements ActionListener {
         group.add(rb3);
 
         frame.add(panelChoose, BorderLayout.NORTH);
+    }
+    void LoginAccount()
+    {
+        //Color color2 = new Color(255 ,228, 225);
+
+        panel.setLayout(new GridLayout(4,1));
+
+
+        JLabel labelSystem = new JLabel("图书管理系统");
+        labelSystem.setFont(new Font("微软雅黑",Font.BOLD,40));
+
+        JPanel panelSystem = new JPanel();
+        JPanel p1 = new JPanel();
+        JPanel p2 = new JPanel();
+        JPanel p3 = new JPanel();
+
+        p1.setLayout(new FlowLayout(FlowLayout.CENTER,20,20));
+        p2.setLayout(new FlowLayout(FlowLayout.CENTER,20,20));
+        p3.setLayout(new FlowLayout(FlowLayout.CENTER,20,20));
+
+        JLabel labelAccount = new JLabel("账号:");
+        JLabel labelPassword = new JLabel("密码:");
+
+
+        JButton loginButton = new JButton();
+
+        JLabel labelCheck = new JLabel();
+        setIcons.setJLabelIcon(labelCheck,"src/Images/闭眼睛.png");
+
+
+        loginButton.addActionListener(this);//设置事件监听
+        loginButton.setActionCommand("login");//设置监听识别命令？
+
+
+        JButton registerButton = new JButton();
+        registerButton.addActionListener(this);//设置事件监听
+        registerButton.setActionCommand("register");//设置监听识别命令？
+
+
+        panelSystem.add(labelSystem);
+        p1.add(labelAccount);
+        p1.add(textAccount);
+        p2.add(labelPassword);
+        p2.add(textPassword);
+
+        //p2.add(labelCheck);
+
+        p3.add(loginButton);
+        p3.add(registerButton);
+
+        //为标签设置图标
+        setIcons.setJLabelIcon(labelSystem,"src/Images/logo.png");
+
+        setIcons.setJLabelIcon(labelAccount,"src/Images/用户名 (2).png");
+
+        setIcons.setJLabelIcon(labelPassword,"src/Images/密码 (2).png");
+
+        setIcons.setJButtonIcon(loginButton,"src/Images/登录.png");
+        setIcons.setJButtonIcon(registerButton,"src/Images/注册 (2).png");
+
+
+        panel.add(panelSystem);
+        panel.add(panelChoose);
+
+        //panel.add(p1);
+        //panel.add(p2);
+        APJPanel apjPanel = new APJPanel();
+        panel.add(apjPanel);
+
+        panel.add(p3);
+
+        frame.add(panel,BorderLayout.CENTER);
+
+
     }
     void LoginAccount(JFrame frame,JPanel panel)
     {
@@ -212,7 +287,8 @@ public class LoginFrame extends JFrame implements ActionListener {
     private void setContentPane()
     {
         LoginChoose(frame);//登录账户选择（三选一）
-        LoginAccount(frame,panel);//选择登录账户后的界面
+        LoginAccount(frame,panel);//选择登录账户
+        //LoginAccount();
     }
     public LoginFrame()
     {
@@ -268,42 +344,27 @@ public class LoginFrame extends JFrame implements ActionListener {
                     systemFrame.setClosedVisible();
                 }
             }
-//            User user = verify.getUserByAccount(account);//查询
-//            if(user != null)//如果用户存在
-//            {
-//                //验证密码和输入的是否相等
-//                if(user.getPassword().equals(password))//如果密码正确
-//                {
-//                    frame.dispose();//关闭当前窗口
-//                    //frame.setVisible(false);//关闭当前窗口
-//                    //new UserFrame();//打开相应界面
-//                    if(rb1.isSelected())//如果rb1
-//                    {
-//                        new UserFrame();
-//                    }
-//                    if(rb2.isSelected())//如果rb2
-//                    {
-//                        new LibrarianFrame();
-//                    }
-//                    if(rb3.isSelected())//如果rb3
-//                    {
-//                        new SystemFrame();
-//                    }
-//                }
-//                else//如果密码输入不正确
-//                {
-//                    JOptionPane.showMessageDialog(null,"密码错误","信息", JOptionPane.INFORMATION_MESSAGE);
-//                }
-//            }
-//            else//如果用户不存在
-//            {
-//                JOptionPane.showMessageDialog(null, "用户不存在", "信息", JOptionPane.INFORMATION_MESSAGE);
-//            }
-        }
+        }/*end login*/
         if(e.getActionCommand().equals("register"))//点击注册按钮
         {
-            JOptionPane.showMessageDialog(null, "暂无相关内容，敬请期待...", "信息", JOptionPane.INFORMATION_MESSAGE);
-        }
+            if(rb1.isSelected())//如果选择 用户登录 注册
+            {
+
+                new resetFrame(frame);
+            }
+            if(rb2.isSelected())//如果选择 图书管理员登录 注册
+            {
+
+                new resetFrame(frame);
+                //信息又该如何储存呢
+            }
+            if(rb3.isSelected())//如果选择 系统管理员登录 注册
+            {
+
+                new resetFrame(frame);
+            }
+        }/*end register*/
+
         if(e.getActionCommand().equals("User"))//JRadioButton
         {
             JOptionPane.showMessageDialog(null, "你选择了用户登录", "信息", JOptionPane.INFORMATION_MESSAGE);

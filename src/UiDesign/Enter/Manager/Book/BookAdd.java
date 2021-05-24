@@ -177,7 +177,6 @@ public class BookAdd extends JFrame implements ActionListener, MouseListener {
         if(e.getActionCommand().equals("reset"))
         {
             //重置按钮
-
         }
     }
     /**

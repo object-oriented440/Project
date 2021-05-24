@@ -40,10 +40,10 @@ public class AboutUsDialog extends JDialog implements ActionListener, MouseListe
         //System.out.println("setDialog()");
         this.setTitle("关于我们");
         this.setBounds(400,240, 600, 350);
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/about.png"));
     }
     private void creatContentPane()
     {
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/about.png"));
 
         //System.out.println("creatContentPane()");
         JPanel p1 = new JPanel();
@@ -52,11 +52,12 @@ public class AboutUsDialog extends JDialog implements ActionListener, MouseListe
         //ImageIcon imageIcon;
 
 
-        setIcons.setJLabelIcon(labelImage,"src/Images/书本.png",180,180);
+        //setIcons.setJLabelIcon(labelImage,"src/Images/图书管理2.png",200,200);
+        setIcons.setJLabelImageScale(labelImage,"src/Images/图书管理2.png",180);
 
         labelSystem.setText("图书管理系统");
         labelSystem.setFont(new Font("微软雅黑",Font.BOLD,50));
-        setIcons.setJLabelIcon(labelSystem,"src/Images/学习.png",60,60);
+        //setIcons.setJLabelIcon(labelSystem,"src/Images/学习.png",60,60);
 
         labelVersion.setText(stringVersion);
         labelVersion.setFont(new Font("微软雅黑",Font.BOLD,30));
@@ -83,12 +84,13 @@ public class AboutUsDialog extends JDialog implements ActionListener, MouseListe
 //        //closeButton.setAlignmentX();
 //        //p2.add(closeButton);
         Box boxTotal = Box.createVerticalBox();
+        boxTotal.add(Box.createVerticalStrut(20));
         boxTotal.add(labelSystem);
         boxTotal.add(Box.createVerticalStrut(50));
         boxTotal.add(labelLink);
         boxTotal.add(Box.createVerticalStrut(50));
         boxTotal.add(labelVersion);
-        boxTotal.add(Box.createVerticalStrut(50));
+        boxTotal.add(Box.createVerticalStrut(30));
 
         p2.add(boxTotal);
 

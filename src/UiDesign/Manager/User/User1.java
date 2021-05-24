@@ -2,15 +2,15 @@ package UiDesign.Manager.User;
 
 
 //用户类
-public class User {
+public class User1 {
     private String account;
     private String password;
 
-    public User()
+    public User1()
     {
 
     }
-    public User(String account,String password)
+    public User1(String account, String password)
     {
 
 //        this.account = account;

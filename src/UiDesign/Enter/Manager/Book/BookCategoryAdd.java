@@ -36,6 +36,7 @@ public class BookCategoryAdd extends JFrame implements ActionListener, FocusList
         labelName = new JLabel("图书类别：");
         labelDescription = new JLabel("图书类别描述：");
         fieldName = new JTextField(20);
+        fieldName.setFont(new Font("微软雅黑",Font.BOLD,16));
 
         areaDescription = new JTextArea(5,20);
         areaDescription.addFocusListener(this);
@@ -103,9 +104,9 @@ public class BookCategoryAdd extends JFrame implements ActionListener, FocusList
         vBox.add(Box.createVerticalStrut(30));
 
         hTemp1.add(labelName);
-        hTemp1.add(Box.createHorizontalStrut(width));
+        hTemp1.add(Box.createHorizontalStrut(width+36));
         hTemp1.add(fieldName);
-        //hTemp1.add(Box.createHorizontalStrut(width));
+        hTemp1.add(Box.createHorizontalStrut(width+14));
 
         vBox.add(hTemp1);
         vBox.add(Box.createVerticalStrut(height));

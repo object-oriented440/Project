@@ -3,6 +3,7 @@ package UiDesign.Enter.LibrarianFrame.Menu;
 import UiDesign.CustomComponent.Tools.SetIcons;
 import UiDesign.Enter.Manager.Book.BookAdd;
 import UiDesign.Enter.Manager.Book.BookCategoryAdd;
+import UiDesign.Enter.Manager.Book.BookCategoryModify;
 import UiDesign.Enter.Manager.Book.BookInformationModify;
 import UiDesign.Enter.Menu.Else;
 
@@ -189,7 +190,7 @@ public class MyMenu extends JMenuBar implements ActionListener {
             //currentFrame.dispose();
             //currentFrame.setVisible(false);
             //JOptionPane.showMessageDialog(null, "暂无相关内容，敬请期待...", "信息", JOptionPane.INFORMATION_MESSAGE);
-
+            currentFrame.setVisible(false);
             BookCategoryAdd bookCategoryAdd = new BookCategoryAdd(currentFrame,previousFrame);
             bookCategoryAdd.Execute();
             bookCategoryAdd.setClosedVisible();
@@ -198,8 +199,11 @@ public class MyMenu extends JMenuBar implements ActionListener {
         {
             //currentFrame.dispose();
             //currentFrame.setVisible(false);
-            JOptionPane.showMessageDialog(null, "暂无相关内容，敬请期待...", "信息", JOptionPane.INFORMATION_MESSAGE);
-
+            //JOptionPane.showMessageDialog(null, "暂无相关内容，敬请期待...", "信息", JOptionPane.INFORMATION_MESSAGE);
+            currentFrame.setVisible(false);
+            BookCategoryModify bookCategoryModify = new BookCategoryModify(currentFrame,previousFrame);
+            bookCategoryModify.Execute();
+            bookCategoryModify.setClosedVisible();
         }
     }
 

@@ -212,7 +212,20 @@ public class BookAddPane extends JPanel implements ActionListener, FocusListener
         }
         if(e.getActionCommand().equals("reset"))
         {
+            fieldBookName.setText("");
+            fieldBookAuthor.setText("");
+            fieldBookPress.setText("");
+            fieldBookCallNumber.setText("");
+            comboBoxBookCategory.setSelectedIndex(0);
 
+            stringDefault = "请输入书籍的主要内容";
+            areaBookIntroduce.setForeground(new Color(211, 211, 211));
+            areaBookIntroduce.setFont(new Font("微软雅黑",Font.BOLD,16));
+            areaBookIntroduce.setText(stringDefault);
+
+            fileSelector.getSetIcons().setJLabelIcon(fileSelector,"src/Images/添加图片5.png",250,250);;
+
+            fieldBookName.requestFocusInWindow();
         }
     }
 

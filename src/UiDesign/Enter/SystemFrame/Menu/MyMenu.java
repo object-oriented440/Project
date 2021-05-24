@@ -2,6 +2,9 @@ package UiDesign.Enter.SystemFrame.Menu;
 
 import UiDesign.AboutUs.AboutUsDialog;
 import UiDesign.CustomComponent.Tools.SetIcons;
+import UiDesign.Enter.Manager.Book.BookCategoryAdd;
+import UiDesign.Enter.Manager.System.librarianManager;
+import UiDesign.Enter.Manager.System.userManager;
 import UiDesign.Enter.Menu.Else;
 
 import javax.swing.*;
@@ -22,7 +25,7 @@ public class MyMenu extends JMenuBar implements ActionListener {
     }
     public JMenu creatMenu1()
     {
-        JMenu menu = new JMenu("管理");
+        JMenu menu = new JMenu("系统管理");
         JMenuItem item;
         item = new JMenuItem("用户管理");
         setIcons.setJMenuItemIcon(item,"src/Images/我的2.png",16,16);
@@ -61,11 +64,17 @@ public class MyMenu extends JMenuBar implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("UserManager"))
         {
-
+            currentFrame.setVisible(false);
+            userManager userManager = new userManager(currentFrame,previousFrame);
+            userManager.Execute();
+            userManager.setClosedVisible();
         }
         if(e.getActionCommand().equals("LibrarianManager"))
         {
-
+            currentFrame.setVisible(false);
+            librarianManager librarianManager = new librarianManager(currentFrame,previousFrame);
+            librarianManager.Execute();
+            librarianManager.setClosedVisible();
         }
 //        if(e.getActionCommand().equals("exit"))
 //        {

@@ -63,6 +63,8 @@ public class BookModifyPane extends JPanel implements ActionListener, MouseListe
         labelBookCallNumber1 = new JLabel("图书索引号：");
         fieldBookCallNumber1 = new JTextField(10);
         fieldBookCallNumber1.setFont(new Font("微软雅黑",Font.BOLD,12));
+        fieldBookCallNumber1.requestFocusInWindow();
+
         labelBookCallNumber2 = new JLabel("图书索引号：");
         fieldBookCallNumber2 = new JTextField(10);
         fieldBookCallNumber2.setFont(new Font("微软雅黑",Font.BOLD,12));
@@ -138,8 +140,11 @@ public class BookModifyPane extends JPanel implements ActionListener, MouseListe
         labelBookCategory = new JLabel("图书类别：");
 
         fieldBookName = new JTextField(10);
+        fieldBookName.setFont(new Font("微软雅黑",Font.BOLD,12));
         fieldBookAuthor = new JTextField(10);
+        fieldBookAuthor.setFont(new Font("微软雅黑",Font.BOLD,12));
         fieldBookPress = new JTextField(10);
+        fieldBookPress.setFont(new Font("微软雅黑",Font.BOLD,12));
         //fieldBookCallNumber = new JTextField(10);
 
         comboBoxBookCategory = new JComboBox();
@@ -147,11 +152,11 @@ public class BookModifyPane extends JPanel implements ActionListener, MouseListe
         comboBoxBookCategory.addItem("玄幻类");
         comboBoxBookCategory.addItem("文学类");
 
-        comboBoxBookCategory.setSelectedIndex(2);
+        comboBoxBookCategory.setSelectedIndex(0);
 
 
     }
-    private JTable creatTable()
+    private JTable creatTable() //??????
     {
         //表头
         String[] headers = {"索书号","书籍名称","书籍作者","书籍出版社","书籍类别"};
@@ -163,10 +168,6 @@ public class BookModifyPane extends JPanel implements ActionListener, MouseListe
         tableModel = new DefaultTableModel(null,headers);
         //为表格设置数据模型
         table.setModel(tableModel);
-
-        //
-        //table.setForeground(Color.red);
-        //table.setBackground(Color.white);
 
         return table;
     }
@@ -293,7 +294,39 @@ public class BookModifyPane extends JPanel implements ActionListener, MouseListe
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("query"))
+        {
 
+        }
+        if(e.getActionCommand().equals("reset 1"))
+        {
+            fieldBookCallNumber1.setText("");
+            fieldBookCallNumber1.requestFocusInWindow();
+        }
+        if(e.getActionCommand().equals("modify"))
+        {
+
+        }
+        if(e.getActionCommand().equals("delete"))
+        {
+
+        }
+        if(e.getActionCommand().equals("reset 2"))
+        {
+            fieldBookName.setText("");
+            fieldBookAuthor.setText("");
+            fieldBookPress.setText("");
+            fieldBookCallNumber2.setText("");
+
+            comboBoxBookCategory.setSelectedIndex(0);
+
+            stringDefault = "请输入书籍的主要内容";
+            areaBookIntroduce.setForeground(new Color(211, 211, 211));
+            areaBookIntroduce.setFont(new Font("微软雅黑",Font.BOLD,16));
+            areaBookIntroduce.setText(stringDefault);
+
+            fieldBookName.requestFocusInWindow();
+        }
     }
 
     @Override

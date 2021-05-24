@@ -38,7 +38,7 @@ public class SystemFrame extends JFrame implements ActionListener {
     }
     private void creatContentPane()
     {
-        ContentPane contentPane = new ContentPane("src/Images/系统管理xxx.png");
+        ContentPane contentPane = new ContentPane("src/Images/系统管理3.png");
         //ContentPane contentPane = new ContentPane();
         panel.add(contentPane);
         //panel.add(new ContentPane());
