@@ -76,7 +76,7 @@ public class BookCategoryAdd extends JFrame implements ActionListener, FocusList
     private void setFrame()
     {
         this.setTitle("图书类别添加");
-        this.setBounds(300,200,600,400);
+        this.setBounds(340,220,600,400);
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/图书管理2.png"));
 
     }
@@ -139,7 +139,7 @@ public class BookCategoryAdd extends JFrame implements ActionListener, FocusList
     }
     public void setClosedVisible()
     {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
     public BookCategoryAdd(JFrame currentFrame,JFrame previousFrame)

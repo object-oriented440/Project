@@ -139,7 +139,7 @@ public class BookAdd extends JFrame implements ActionListener, MouseListener {
     }
     public void setClosedVisible()
     {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
     public void Execute()

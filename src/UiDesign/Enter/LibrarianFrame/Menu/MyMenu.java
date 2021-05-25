@@ -167,7 +167,7 @@ public class MyMenu extends JMenuBar implements ActionListener {
 //            panel.add(new BookAdd());
             //直接新JFrame拉倒
             //currentFrame.dispose();
-            currentFrame.setVisible(false);
+            //currentFrame.setVisible(false);
             BookAdd bookAdd = new BookAdd(currentFrame,previousFrame);//创建对象的时候，不要调用函数！！！太难了~~~
             //new BookAdd(frame);
             //bookAdd.setVariate_previousFrame(previousFrame);
@@ -179,7 +179,7 @@ public class MyMenu extends JMenuBar implements ActionListener {
         if(e.getActionCommand().equals("bookInformationModify"))
         {
             //currentFrame.dispose();
-            currentFrame.setVisible(false);
+            //currentFrame.setVisible(false);
             BookInformationModify bookInformationModify = new BookInformationModify(currentFrame,previousFrame);
             bookInformationModify.Execute();
             bookInformationModify.setClosedVisible();
@@ -190,7 +190,7 @@ public class MyMenu extends JMenuBar implements ActionListener {
             //currentFrame.dispose();
             //currentFrame.setVisible(false);
             //JOptionPane.showMessageDialog(null, "暂无相关内容，敬请期待...", "信息", JOptionPane.INFORMATION_MESSAGE);
-            currentFrame.setVisible(false);
+            //currentFrame.setVisible(false);
             BookCategoryAdd bookCategoryAdd = new BookCategoryAdd(currentFrame,previousFrame);
             bookCategoryAdd.Execute();
             bookCategoryAdd.setClosedVisible();
@@ -200,7 +200,7 @@ public class MyMenu extends JMenuBar implements ActionListener {
             //currentFrame.dispose();
             //currentFrame.setVisible(false);
             //JOptionPane.showMessageDialog(null, "暂无相关内容，敬请期待...", "信息", JOptionPane.INFORMATION_MESSAGE);
-            currentFrame.setVisible(false);
+            //currentFrame.setVisible(false);
             BookCategoryModify bookCategoryModify = new BookCategoryModify(currentFrame,previousFrame);
             bookCategoryModify.Execute();
             bookCategoryModify.setClosedVisible();

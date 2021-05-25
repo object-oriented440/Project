@@ -79,7 +79,7 @@ public class BookCategoryModify extends JFrame implements ActionListener, FocusL
     private void setFrame()
     {
         this.setTitle("图书类别添加功能");
-        this.setBounds(300,200,570,500);
+        this.setBounds(370,180,570,500);
         Image image = Toolkit.getDefaultToolkit().getImage("src/Images/图书管理2.png");
         this.setIconImage(image);
     }
@@ -182,7 +182,7 @@ public class BookCategoryModify extends JFrame implements ActionListener, FocusL
     }
     public void setClosedVisible()
     {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
     public BookCategoryModify(JFrame currentFrame,JFrame previousFrame)

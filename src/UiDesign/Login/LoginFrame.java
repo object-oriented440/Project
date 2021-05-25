@@ -316,8 +316,8 @@ public class LoginFrame extends JFrame implements ActionListener {
             if(account.equals("张三") && password.equals("123456"))
             {
 
-                frame.dispose();//关闭当前窗口
-                //frame.setVisible(false);//关闭当前窗口
+                //frame.dispose();//关闭当前窗口
+                frame.setVisible(false);//关闭当前窗口
 
                 //new UserFrame();//打开相应界面
                 if(rb1.isSelected())//如果rb1

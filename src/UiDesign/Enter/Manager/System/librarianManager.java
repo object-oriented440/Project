@@ -24,7 +24,7 @@ public class librarianManager extends JFrame implements ActionListener, FocusLis
     {
         this.setTitle("");
         this.setBounds(300,200,600,400);
-        Image image = Toolkit.getDefaultToolkit().getImage("src/Images/.png");
+        Image image = Toolkit.getDefaultToolkit().getImage("src/Images/系统管理3.png");
         this.setIconImage(image);
     }
     private void setMenu()
@@ -46,7 +46,7 @@ public class librarianManager extends JFrame implements ActionListener, FocusLis
     }
     public void setClosedVisible()
     {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
     public librarianManager(JFrame currentFrame,JFrame previousFrame)

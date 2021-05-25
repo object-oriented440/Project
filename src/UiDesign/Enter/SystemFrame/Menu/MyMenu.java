@@ -4,6 +4,7 @@ import UiDesign.AboutUs.AboutUsDialog;
 import UiDesign.CustomComponent.Tools.SetIcons;
 import UiDesign.Enter.Manager.Book.BookCategoryAdd;
 import UiDesign.Enter.Manager.System.librarianManager;
+import UiDesign.Enter.Manager.System.totalManager;
 import UiDesign.Enter.Manager.System.userManager;
 import UiDesign.Enter.Menu.Else;
 
@@ -27,17 +28,26 @@ public class MyMenu extends JMenuBar implements ActionListener {
     {
         JMenu menu = new JMenu("系统管理");
         JMenuItem item;
+        item = new JMenuItem("总管理");
+        setIcons.setJMenuItemIcon(item,"src/Images/维护2.png",16,16);
+        item.addActionListener(this);
+        item.setActionCommand("TotalManager");
+        menu.add(item);
+        //menu.addSeparator();
+
         item = new JMenuItem("用户管理");
         setIcons.setJMenuItemIcon(item,"src/Images/我的2.png",16,16);
         item.addActionListener(this);
         item.setActionCommand("UserManager");
-        menu.add(item);
-        menu.addSeparator();
+        //menu.add(item);
+        //menu.addSeparator();
+
         item = new JMenuItem("图书管理员管理");
         setIcons.setJMenuItemIcon(item,"src/Images/维护2.png",16,16);
         item.addActionListener(this);
         item.setActionCommand("LibrarianManager");
-        menu.add(item);
+        //menu.add(item);
+
         return menu;
     }
 
@@ -62,16 +72,22 @@ public class MyMenu extends JMenuBar implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("TotalManager"))
+        {
+            totalManager totalManager = new totalManager(currentFrame,previousFrame);
+            totalManager.Execute();
+            totalManager.setClosedVisible();
+        }
         if(e.getActionCommand().equals("UserManager"))
         {
-            currentFrame.setVisible(false);
+            //currentFrame.setVisible(false);
             userManager userManager = new userManager(currentFrame,previousFrame);
             userManager.Execute();
             userManager.setClosedVisible();
         }
         if(e.getActionCommand().equals("LibrarianManager"))
         {
-            currentFrame.setVisible(false);
+            //currentFrame.setVisible(false);
             librarianManager librarianManager = new librarianManager(currentFrame,previousFrame);
             librarianManager.Execute();
             librarianManager.setClosedVisible();

@@ -28,6 +28,8 @@ public class LibraryInformation extends JFrame implements ActionListener, FocusL
     private JTable table;
     private DefaultTableModel tableModel;
 
+    private JLabel labelBorrowBookNumber;//借书数量显示
+    private JTextField fieldBorrowBookNumber;
 
     private void initVariate()
     {
@@ -38,7 +40,7 @@ public class LibraryInformation extends JFrame implements ActionListener, FocusL
     {
         this.setTitle("借阅信息查询");
         this.setBounds(380,250,470,270);
-        Image image = Toolkit.getDefaultToolkit().getImage("src/Images/.png");
+        Image image = Toolkit.getDefaultToolkit().getImage("src/Images/用户.png");
         this.setIconImage(image);
     }
     private void setMenu()
@@ -51,12 +53,16 @@ public class LibraryInformation extends JFrame implements ActionListener, FocusL
 
     private void setPane()
     {
+        panel.setLayout(new BorderLayout());
+
+        tableHBox = Box.createHorizontalBox();
+
         Border border = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
-        panel.setBorder(BorderFactory.createTitledBorder(border,
+        tableHBox.setBorder(BorderFactory.createTitledBorder(border,
                 "已借书籍", TitledBorder.CENTER,TitledBorder.TOP));
 
         /******/
-        tableHBox = Box.createHorizontalBox();
+        //tableHBox = Box.createHorizontalBox();
         //实例化一个滚动面板
         JScrollPane tableScrollPane = new JScrollPane();
         //将表格添加到滚动面板中
@@ -67,7 +73,32 @@ public class LibraryInformation extends JFrame implements ActionListener, FocusL
         tableHBox.add(tableScrollPane);
         /******/
 
-        panel.add(tableHBox);
+        Box hbt1 = Box.createHorizontalBox();
+
+        labelBorrowBookNumber = new JLabel("已借数量:");
+        fieldBorrowBookNumber = new JTextField();
+
+        /*此处获取已借数量的数据！！！代码没写*/
+        int temp = 0;
+        fieldBorrowBookNumber.setText(""+temp+"");
+
+        /**/
+
+        fieldBorrowBookNumber.setForeground(Color.red);
+        fieldBorrowBookNumber.setFont(new Font("微软雅黑",Font.BOLD,16));
+        fieldBorrowBookNumber.setEditable(false);//设为不可被编辑状态
+
+        int width = 20,height = 15;
+
+        hbt1.add(Box.createHorizontalStrut(8*width));
+        hbt1.add(labelBorrowBookNumber);
+        hbt1.add(Box.createHorizontalStrut(2*width));
+        hbt1.add(fieldBorrowBookNumber);
+        hbt1.add(Box.createHorizontalStrut(8*width-10));
+
+
+        panel.add(tableHBox,BorderLayout.NORTH);
+        panel.add(hbt1,BorderLayout.CENTER);
         this.add(panel);
     }
     public void Execute()
@@ -93,7 +124,7 @@ public class LibraryInformation extends JFrame implements ActionListener, FocusL
     }
     public void setClosedVisible()
     {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
     public LibraryInformation(JFrame currentFrame,JFrame previousFrame)

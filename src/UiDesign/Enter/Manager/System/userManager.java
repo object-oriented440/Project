@@ -23,7 +23,7 @@ public class userManager extends JFrame implements ActionListener, FocusListener
     {
         this.setTitle("");
         this.setBounds(300,200,600,400);
-        Image image = Toolkit.getDefaultToolkit().getImage("src/Images/.png");
+        Image image = Toolkit.getDefaultToolkit().getImage("src/Images/系统管理3.png");
         this.setIconImage(image);
     }
     private void setMenu()
@@ -45,7 +45,7 @@ public class userManager extends JFrame implements ActionListener, FocusListener
     }
     public void setClosedVisible()
     {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
     public userManager(JFrame currentFrame,JFrame previousFrame)

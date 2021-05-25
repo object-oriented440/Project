@@ -55,7 +55,7 @@ public class BookInformationModify extends JFrame implements ActionListener, Mou
     }
     public void setClosedVisible()
     {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
     public BookInformationModify(JFrame currentFrame, JFrame previousFrame)

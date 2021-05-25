@@ -4,6 +4,9 @@ import UiDesign.CustomComponent.Tools.SetIcons;
 import UiDesign.Enter.Menu.Else;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,7 +49,7 @@ public class PersonalInformation extends JFrame implements ActionListener, Focus
     {
         this.setTitle("个人信息添加");
         this.setBounds(380,250,470,270);
-        Image image = Toolkit.getDefaultToolkit().getImage("src/Images/.png");
+        Image image = Toolkit.getDefaultToolkit().getImage("src/Images/用户.png");
         this.setIconImage(image);
     }
     private void setMenu()
@@ -59,10 +62,24 @@ public class PersonalInformation extends JFrame implements ActionListener, Focus
     private void setPane()
     {
         panel = new JPanel();
+        Border border = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
+        panel.setBorder(BorderFactory.createTitledBorder(border,
+                "个人信息添加", TitledBorder.CENTER,TitledBorder.TOP));
 
         Box HBox = Box.createHorizontalBox();
+
         Box vBTemp1 = Box.createVerticalBox();
         Box vBTemp2 = Box.createVerticalBox();
+
+        JPanel p1 = new JPanel();
+        JPanel p2 = new JPanel();
+        p1.setBorder(BorderFactory.createTitledBorder(border,
+                null, TitledBorder.CENTER,TitledBorder.TOP));
+        p2.setBorder(BorderFactory.createTitledBorder(border,
+                null, TitledBorder.CENTER,TitledBorder.TOP));
+        p1.add(vBTemp1);
+        p2.add(vBTemp2);
+
         Box hbt1 = Box.createHorizontalBox();
         Box hbt2 = Box.createHorizontalBox();
         Box hbt3 = Box.createHorizontalBox();
@@ -165,6 +182,8 @@ public class PersonalInformation extends JFrame implements ActionListener, Focus
         hbt6.add(fieldBorrowBookNumber);
         hbt6.add(Box.createHorizontalStrut(width));
 
+        hbt6.setVisible(false);
+
         hbt7.add(Box.createHorizontalStrut(3*width));
         hbt7.add(buttonCancel);
         hbt7.add(Box.createHorizontalStrut(width/2));
@@ -190,7 +209,9 @@ public class PersonalInformation extends JFrame implements ActionListener, Focus
 
         //HBox.add(Box.createHorizontalStrut(15));
         HBox.add(vBTemp1);
+        //HBox.add(p1);
         HBox.add(Box.createHorizontalStrut(30));
+        //HBox.add(p2);
         HBox.add(vBTemp2);
         //HBox.add(Box.createHorizontalStrut(15));
 

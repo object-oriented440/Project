@@ -24,7 +24,7 @@ public class FileSelector extends JLabel implements MouseListener {
     {
         imagePath = "src/Images/添加图片5.png";
         setIcons = new SetIcons();
-        fileChooser = new JFileChooser("C:\\Users\\www29\\Desktop\\bookImages");
+        fileChooser = new JFileChooser("src/Images/bookImages");
     }
     private void setLabel()
     {
