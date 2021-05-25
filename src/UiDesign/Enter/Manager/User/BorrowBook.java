@@ -54,7 +54,7 @@ public class BorrowBook extends JFrame implements ActionListener, FocusListener 
         panel = new JPanel();
         Border border = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
         panel.setBorder(BorderFactory.createTitledBorder(border,
-                "还书",
+                "借书",
                 TitledBorder.CENTER,TitledBorder.TOP));
 
         labelCallNumber = new JLabel("索书号:");
